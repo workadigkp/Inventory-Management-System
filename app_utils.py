@@ -5,11 +5,15 @@ Author      : Aditya Abhishek Tripathi
 UI/UX handler for Inventory Management System.
 """
 
-from database import InventoryFile
+from database import DatabaseHandler
 
-class App(InventoryFile):
-    def __init__(self, path):
-        super().__init__(path)  # Connects app to database
+class App(DatabaseHandler):
+    """This class handles the frontend and backend functionalities of Inventory Management System"""
+    
+    def __init__(self, inventory_path, sales_path, username, phone):
+        super().__init__(inventory_path, sales_path)  # Connects app to database
+        self.username = username
+        self.phone = phone
         self.cart = [] # list of tuple -> (id, name, price, qty)
 
     def welcome_screen(self):
@@ -32,22 +36,20 @@ class App(InventoryFile):
     def generate_bill(self):
         """Generates and prints the bill for items in cart"""
         gt = 0  # GRAND_TOTAL
-        print("-"*20)
+        bill = "-"*20+"\n"
         for id, name, price, qty in self.cart:
             total = price*qty
             gt += total
-            print(f"ID: {id}")
-            print(f"Name: {name}")
-            print(f"Quantity: {qty}")
-            print(f"Price: {price}")
-            print(f"Total: {total}")
-            print("-"*20)
-        print(f"GRAND_TOTAL = {gt}")
+            bill += f"ID: {id}\nName: {name}\nQuantity: {qty}\nPrice: {price}\nTotal: {total}\n"+"-"*20+"\n"
+
+        return bill, gt
 
     def buy(self):
         """Purchase items in cart"""
         if self.cart:
-            self.generate_bill()
+            bill, gt = self.generate_bill()
+            print(bill)
+            print(f"GRAND TOTAL: {gt}")
             cnf = ""
             while cnf.lower() != 'y':
                 cnf = input("Confirm purchase? (y/n) : ")
@@ -58,14 +60,19 @@ class App(InventoryFile):
             del self.cart[:]    # empty the cart for next purchase
             self.update_inventory() # update the inventory after purchase is confirmed
             print("Purchase Successful")
+            self.update_sales(self.username, self.phone, gt, bill)
         else:
             print("No items in cart.")
+
+# Cart functionalities
 
     def show_cart(self):
         """Display items in cart"""
         if self.cart:
             print("Cart")         
-            self.generate_bill()
+            bill, gt = self.generate_bill()
+            print(bill)
+            print(f"GRAND TOTAL: {gt}")
         else:
             print("Cart is Empty")
 

@@ -1,0 +1,38 @@
+Username: Aditya
+Phone: 9304515512
+Grand Total: 630
+Purchase-time: Mon May  4 17:29:03 2026
+--------------------
+ID: 2
+Name: Milky Bar
+Quantity: 2
+Price: 5
+Total: 10
+--------------------
+ID: 3
+Name: Cake
+Quantity: 2
+Price: 300
+Total: 600
+--------------------
+ID: 4
+Name: Dairy Milk
+Quantity: 2
+Price: 10
+Total: 20
+--------------------
+
+********************
+Username: Aditya
+Phone: 9304515512
+Grand Total: 600
+Purchase-time: Mon May  4 17:30:17 2026
+--------------------
+ID: 3
+Name: Cake
+Quantity: 2
+Price: 300
+Total: 600
+--------------------
+
+********************
