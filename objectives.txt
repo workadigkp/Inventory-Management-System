@@ -1,3 +1,5 @@
-1. Reading and listing the products (05/02/2026)
-2. Adding purchase functionality and update the Inventory (05/02/2026)
+1. Reading and listing the products
+2. Adding purchase functionality and update the Inventory
 3. Maintaining a record for sales of each day
+4. Database update: inventory.txt -> inventory.csv, sales.txt -> sales.json
+5. Add discount and gst over final bill
