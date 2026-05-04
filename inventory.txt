@@ -1,4 +1,4 @@
-1,5 star,87,5
-2,Milky Bar,95,5
-3,Cake,2,300
-4,Dairy Milk,37,10
+1,5 star,100,5
+2,Milky Bar,100,5
+3,Cake,10,300
+4,Dairy Milk,50,10

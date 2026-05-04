@@ -35,11 +35,3 @@ class InventoryFile:
         txt = txt[:len(txt)-1]  # removes last \n
         f.write(txt)
         f.close()
-
-    def add_product(self):
-        """Adds new product to Inventory"""
-        pass
-
-    def remove_product(self):
-        """Removes a product from Inventory"""
-        pass

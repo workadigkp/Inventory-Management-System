@@ -23,7 +23,9 @@ app.welcome_screen()
 print("Type help for a list of available commands.")
 
 while True:
+    print("*"*20)
     cmd = input("Enter the command: ")
+    print("*"*20)
     try:
         cmd_list[cmd]()
     except KeyError:

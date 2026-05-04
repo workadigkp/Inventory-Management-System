@@ -33,12 +33,15 @@ class App(InventoryFile):
         """Generates and prints the bill for items in cart"""
         gt = 0  # GRAND_TOTAL
         print("-"*20)
-        print("ID----NAME----UNIT_PRICE----QUANTITY----TOTAL")  # ID|NAME|UNIT_PRICE|QUANTITY|TOTAL
         for id, name, price, qty in self.cart:
             total = price*qty
             gt += total
-            print(f"{id}----{name}----{price}----{qty}----{total}")
-        print("-"*20)
+            print(f"ID: {id}")
+            print(f"Name: {name}")
+            print(f"Quantity: {qty}")
+            print(f"Price: {price}")
+            print(f"Total: {total}")
+            print("-"*20)
         print(f"GRAND_TOTAL = {gt}")
 
     def buy(self):
@@ -77,7 +80,7 @@ class App(InventoryFile):
                 self.cart.append((id, self.inventory["name"][i], self.inventory["price"][i], qty))  # Adding product details to cart
                 print(f"{qty} units of {self.inventory["name"][i]} added to cart")
             else:
-                print(f"Only {self.inventory["qty"][i]} units are available")
+                print(f"Only {self.inventory["qty"][i]} units of {self.inventory["name"][i]} are available")
 
     def cart_remove(self, id):
         """Remove items from cart"""
@@ -98,6 +101,11 @@ class App(InventoryFile):
 
     def shop(self):
         """Displays details of available products"""
-        print("Product ID----Product Name----Quantity----Price")
+        print("Shop items")
+        print("-"*20)
         for n in range(len(self.inventory["id"])):
-            print(f"{self.inventory["id"][n]}----{self.inventory["name"][n]}----{self.inventory["qty"][n]}----{self.inventory["price"][n]}")
+            print(f"ID: {self.inventory["id"][n]}")
+            print(f"Name: {self.inventory["name"][n]}")
+            print(f"Quantity: {self.inventory["qty"][n]}")
+            print(f"Price: {self.inventory["price"][n]}")
+            print("-"*20)
