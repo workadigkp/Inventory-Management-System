@@ -1,5 +1,6 @@
 1. Reading and listing the products
 2. Adding purchase functionality and update the Inventory
 3. Maintaining a record for sales of each day
-4. Database update: inventory.txt -> inventory.csv, sales.txt -> sales.json
-5. Add discount and gst over final bill
+4. Database updated to json from txt
+5. Begin purchase for a new customer
+6. Extract Receipt for a purchase
