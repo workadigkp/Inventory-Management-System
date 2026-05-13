@@ -41,6 +41,7 @@ class DatabaseHandler:
             return t_id
         
     def load_sales(self):
+        """loads transaction records from database"""
         try:
             with open(self.sales_path, "r") as f:
                 self.sales = json.loads(f.read())

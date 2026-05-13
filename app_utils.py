@@ -41,6 +41,7 @@ class App(DatabaseHandler):
         print("show <transaction_id>    : Shows transaction details for a previous purchase")
 
     def customer_details(self):
+        """Start purchase for new user"""
         self.username = input("Enter your name: ")
         self.phone = input("Enter your phone number: ")
 
@@ -78,6 +79,7 @@ class App(DatabaseHandler):
             print("No items in cart.")
 
     def show_details(self, t_id):
+        """Extract receipt for a purchase"""
         if t_id in self.sales.keys():
             print(f"TRANSACTION ID\n{t_id}\n")
             for detail in self.sales[t_id].keys():
